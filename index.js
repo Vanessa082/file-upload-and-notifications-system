@@ -27,11 +27,10 @@ class FileUploader extends EventEmitter {
     }, 2000)
   }
 }
-  
+
 class FileUploadError extends Error {
   constructor(message) {
     super(message)
-
     this.name = 'FileUploaderError'
   }
 }
