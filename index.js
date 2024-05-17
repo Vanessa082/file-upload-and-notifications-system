@@ -2,8 +2,6 @@
 const EventEmitter = require('events')
 const fs = require('fs')
 
-// event indicating that the file upload has started.
-
 class FileUploader extends EventEmitter {
   upload(file) {
     this.emit('start', file)
