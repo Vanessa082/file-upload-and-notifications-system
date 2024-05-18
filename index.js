@@ -55,5 +55,8 @@ fileUploader.on('processingCompleted', (file) => {
   console.log(`File processing completed for file:${file}`)
 })
 
-const uploadedFile = 'problem.txt'
-fileUploader.upload(uploadedFile)
+// const uploadedFile = 'problem.txt'
+// fileUploader.upload(uploadedFile)
+
+const uploadedFileTwo = 'probleme.txt'
+fileUploader.upload(uploadedFileTwo)
