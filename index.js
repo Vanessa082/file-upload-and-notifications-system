@@ -5,9 +5,10 @@ const fs = require('fs')
 class FileUploader extends EventEmitter {
   upload(file) {
     this.emit('start', file)
-    const randomNumber = Math.random()
+    const randomNumber = 1
     if (randomNumber > 0.8) {
       const error = new FileUploadError('an error ocured ')
+      error.code = 'FILE_MUST_START'
       this.emit('error', error)
       return
     }
@@ -30,6 +31,7 @@ class FileUploadError extends Error {
   constructor(message) {
     super(message)
     this.name = 'FileUploaderError'
+    this.status = 500
   }
 }
 
@@ -40,7 +42,8 @@ fileUploader.on('start', (file) => {
 })
 
 fileUploader.on('error', (error) => {
-  console.log(`Error occured${error.message}`)
+  // console.log(`Error occured${error}`)
+  throw error
 })
 
 fileUploader.on('upload', (file) => {
